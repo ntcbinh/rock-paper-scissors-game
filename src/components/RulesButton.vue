@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const emit = defineEmits(['click']);
-const showRules = () => emit("click");
+const emit = defineEmits(['click'])
+const showRules = () => emit('click')
 </script>
 
 <template>

@@ -6,7 +6,7 @@ $game-choice-ratio: 6rem;
   header {
     display: flex;
     justify-content: center;
-    width: calc(100% - 2*2rem);
+    width: calc(100% - 2 * 2rem);
 
     .logo {
       width: 30%;
@@ -153,7 +153,7 @@ $game-choice-ratio: 6rem;
           border-radius: 50%;
         }
 
-        &--isPaper {
+        &--is-paper {
           transform: translate(-120px);
 
           &:before {
@@ -165,7 +165,7 @@ $game-choice-ratio: 6rem;
           }
         }
 
-        &--isScissors {
+        &--is-scissors {
           transform: translate(120px);
 
           &:before {
@@ -177,8 +177,8 @@ $game-choice-ratio: 6rem;
           }
         }
 
-        &--isRock {
-          transform: translate(0, 2*$game-choice-ratio);
+        &--is-rock {
+          transform: translate(0, 2 * $game-choice-ratio);
 
           &:before {
             background: $rock;
@@ -209,13 +209,13 @@ $game-choice-ratio: 6rem;
     bottom: 0;
     width: 100%;
 
-    >div {
+    > div {
       display: flex;
       justify-content: flex-end;
-      width: calc(100% - 2*2rem);
+      width: calc(100% - 2 * 2rem);
       padding: 2rem;
 
-      >.rules-button {
+      > .rules-button {
         font-size: x-large;
         letter-spacing: 2px;
         color: #ffffff;
