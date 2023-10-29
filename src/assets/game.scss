@@ -1,0 +1,250 @@
+@import './my-base.scss';
+
+$game-choice-ratio: 6rem;
+
+#app {
+  header {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 2*2rem);
+
+    .logo {
+      width: 30%;
+    }
+
+    padding: 2rem;
+
+    .header-score {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border: $default-border;
+      border-radius: 1rem;
+      width: 100%;
+      margin-inline: 25%;
+      padding: 1.5rem;
+
+      .score {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: #ffffff;
+        padding: 0.75rem 1.5rem;
+
+        p {
+          padding: 0;
+          margin: 0;
+          color: $score-text;
+
+          &.score-number {
+            font-size: xx-large;
+            font-weight: 700;
+            color: $dark-text;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    .modal {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: $default-transition;
+      z-index: 1;
+
+      &--isActive {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &__overlay {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #00000066;
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+        border-radius: 1rem;
+        padding: 2rem;
+        background-color: #ffffff;
+        z-index: 1;
+
+        .modal__header {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+
+          .modal__text {
+            text-transform: uppercase;
+            font-size: x-large;
+            font-weight: 600;
+            color: $dark-text;
+            margin: 0;
+          }
+
+          .close-modal {
+            border: none;
+            background-color: inherit;
+          }
+        }
+      }
+    }
+
+    .game-content {
+      position: relative;
+      display: flex;
+      margin: auto 0;
+      width: 100%;
+      height: 350px;
+      justify-content: space-evenly;
+      transition: $default-transition;
+
+      &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../assets/images/bg-triangle.svg) center no-repeat;
+      }
+
+      &__game-choice {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 50%;
+        overflow: hidden;
+        width: $game-choice-ratio;
+        height: $game-choice-ratio;
+        padding: 20px;
+        cursor: pointer;
+        transition: $default-transition;
+
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+
+        &:after {
+          border-radius: 50%;
+        }
+
+        &--isPaper {
+          transform: translate(-120px);
+
+          &:before {
+            background: $paper;
+          }
+
+          &:after {
+            border-bottom: $paper-border-b;
+          }
+        }
+
+        &--isScissors {
+          transform: translate(120px);
+
+          &:before {
+            background: $scissors;
+          }
+
+          &:after {
+            border-bottom: $scissors-border-b;
+          }
+        }
+
+        &--isRock {
+          transform: translate(0, 2*$game-choice-ratio);
+
+          &:before {
+            background: $rock;
+          }
+
+          &:after {
+            border-bottom: $rock-border-b;
+          }
+        }
+      }
+
+      &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex: 1;
+        height: 100%;
+        position: relative;
+        background-color: white;
+        pointer-events: none;
+      }
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    >div {
+      display: flex;
+      justify-content: flex-end;
+      width: calc(100% - 2*2rem);
+      padding: 2rem;
+
+      >.rules-button {
+        font-size: x-large;
+        letter-spacing: 2px;
+        color: #ffffff;
+        background-color: inherit;
+        border: $default-border;
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    header {
+      .header-score {
+        width: 100%;
+        margin-inline: 0;
+      }
+
+      .logo {
+        width: 50%;
+      }
+    }
+
+    footer {
+      div {
+        justify-content: center;
+      }
+
+      max-width: $mobile-width;
+    }
+  }
+}
