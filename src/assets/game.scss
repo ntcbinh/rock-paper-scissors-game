@@ -201,6 +201,66 @@ $game-choice-ratio: 6rem;
         background-color: white;
         pointer-events: none;
       }
+
+      .game-result {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+
+        .status {
+          color: #ffffff;
+          font-size: large;
+          width: 20%;
+
+          >div {
+            height: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .play-again {
+            z-index: 1;
+            height: 3rem;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            color: $dark-text;
+          }
+        }
+
+        .result-item {
+          .count-down {
+            color: $dark-text;
+            font-size: 72px;
+            font-weight: 700;
+          }
+
+          >.title {
+            color: #ffffff;
+            font-size: large;
+            height: 65%;
+            width: 200%;
+            text-align: center;
+          }
+
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 0 5%;
+
+          .game-content__game-choice {
+
+            &--is-paper,
+            &--is-rock,
+            &--is-scissors {
+              transform: none;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -209,13 +269,13 @@ $game-choice-ratio: 6rem;
     bottom: 0;
     width: 100%;
 
-    > div {
+    >div {
       display: flex;
       justify-content: flex-end;
       width: calc(100% - 2 * 2rem);
       padding: 2rem;
 
-      > .rules-button {
+      >.rules-button {
         font-size: x-large;
         letter-spacing: 2px;
         color: #ffffff;
