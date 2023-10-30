@@ -4,6 +4,10 @@ defineProps({
   value: {
     type: String,
     default: null
+  },
+  noColor: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -11,7 +15,7 @@ defineProps({
 <template>
   <div
     class="game-content__game-choice"
-    :class="`game-content__game-choice--is-${value}`"
+    :class="[`game-content__game-choice--is-${value}`, noColor ? 'no-color' : '']"
     @click="$emit('choose', value)"
   >
     <div class="game-content__image">

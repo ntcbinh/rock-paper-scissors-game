@@ -223,14 +223,14 @@ $game-choice-ratio: 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-          }
-
-          .play-again {
-            z-index: 1;
-            height: 3rem;
-            background-color: #ffffff;
-            border-radius: 1rem;
-            color: $dark-text;
+            padding: 1.5rem;
+            .play-again {
+              z-index: 1;
+              height: 3rem;
+              background-color: #ffffff;
+              border-radius: 1rem;
+              color: $dark-text;
+            }
           }
         }
 
@@ -262,6 +262,16 @@ $game-choice-ratio: 6rem;
             &--is-rock,
             &--is-scissors {
               transform: none;
+
+              &.no-color {
+                &:before {
+                  background: #c0c0c0 !important;
+                }
+
+                &:after {
+                  border-bottom: $lose-border-b !important;
+                }
+              }
             }
           }
         }

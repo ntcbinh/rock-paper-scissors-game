@@ -101,7 +101,7 @@ const playAgain = () => {
       <div v-else class="game-result">
         <div class="result-item">
           <div class="title">YOUR CHOICE</div>
-          <GameChoiceItem :value="selectedChoice">
+          <GameChoiceItem :no-color="status==='YOU LOSE'" :value="selectedChoice">
             <template #image>
               <img :src="getImg(selectedChoice)" :alt="`${selectedChoice} choice`" />
             </template>
@@ -120,7 +120,7 @@ const playAgain = () => {
         </div>
         <div class="result-item">
           <div class="title">COMPUTER CHOICE</div>
-          <GameChoiceItem :value="randomResult">
+          <GameChoiceItem :no-color="status==='YOU LOSE'" :value="randomResult">
             <template #image>
               <img
                 v-if="randomResult"
