@@ -3,7 +3,7 @@ defineEmits(['choose'])
 defineProps({
   value: {
     type: String,
-    default: 'paper'
+    default: null
   }
 })
 </script>

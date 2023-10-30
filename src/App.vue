@@ -10,6 +10,7 @@ import './assets/game.scss'
 
 const isShowModal = ref(false)
 const score = ref(0)
+const computerScore = ref(0)
 const showModal = () => (isShowModal.value = true)
 const closeModal = () => (isShowModal.value = false)
 const gameChoices = computed(() => ['paper', 'scissors', 'rock'])
@@ -35,10 +36,12 @@ const showResult = (userChoice: string, computerChoice: string) => {
   ) {
     if (score.value > 0) {
       score.value -= 1
+      computerScore.value += 1
     }
     status.value = 'YOU LOSE'
   } else {
     score.value += 1
+    computerScore.value -= 1
     status.value = 'YOU WIN'
   }
 }
@@ -56,7 +59,19 @@ const startCountdown = () => {
   }
 }
 
+const isEndGame = computed(() => {
+  console.log('isEndGame', score.value, computerScore.value)
+  return score.value === 2 || computerScore.value === 2
+})
+
+const playContinue = () => {
+  selectedChoice.value = null
+  randomResult.value = null
+}
+
 const playAgain = () => {
+  score.value = 0
+  computerScore.value = 0
   selectedChoice.value = null
   randomResult.value = null
 }
@@ -94,9 +109,14 @@ const playAgain = () => {
         </div>
         <div class="status">
           <div v-show="countdown === 4 && selectedChoice">
-          {{ status }}
-          <button class="play-again" type="button" @click="playAgain">PLAY AGAIN</button>
-        </div>
+            {{ status }}
+            <button v-if="!isEndGame" class="play-again" type="button" @click="playContinue">
+              CONTINUE
+            </button>
+            <button v-if="isEndGame" class="play-again" type="button" @click="playAgain">
+              PLAY AGAIN
+            </button>
+          </div>
         </div>
         <div class="result-item">
           <div class="title">COMPUTER CHOICE</div>

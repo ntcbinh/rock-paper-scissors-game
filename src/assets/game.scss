@@ -62,7 +62,7 @@ $game-choice-ratio: 6rem;
       justify-content: center;
       align-items: center;
       transition: $default-transition;
-      z-index: 1;
+      z-index: 2;
 
       &--isActive {
         visibility: visible;
@@ -84,7 +84,7 @@ $game-choice-ratio: 6rem;
         border-radius: 1rem;
         padding: 2rem;
         background-color: #ffffff;
-        z-index: 1;
+        z-index: 2;
 
         .modal__header {
           display: flex;
@@ -117,6 +117,11 @@ $game-choice-ratio: 6rem;
       height: 350px;
       justify-content: space-evenly;
       transition: $default-transition;
+      padding-top: 6rem;
+
+      &:has(> div.game-result) {
+        padding-top: 0;
+      }
 
       &__bg {
         position: absolute;
@@ -205,12 +210,12 @@ $game-choice-ratio: 6rem;
       .game-result {
         display: flex;
         flex-direction: row;
-        width: 60%;
 
         .status {
           color: #ffffff;
           font-size: large;
-          width: 20%;
+          width: 60%;
+          min-width: 115px;
 
           >div {
             height: 80%;
@@ -248,7 +253,7 @@ $game-choice-ratio: 6rem;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: space-around;
           padding: 0 5%;
 
           .game-content__game-choice {
@@ -297,6 +302,11 @@ $game-choice-ratio: 6rem;
       .logo {
         width: 50%;
       }
+    }
+
+    .status {
+      transform: translate(0, 2 * $game-choice-ratio);
+      // width: 80% !important;
     }
 
     footer {
