@@ -117,10 +117,10 @@ $game-choice-ratio: 6rem;
       height: 350px;
       justify-content: space-evenly;
       transition: $default-transition;
-      padding-top: 6rem;
+      padding-top: 2rem;
 
       &:has(> div.game-result) {
-        padding-top: 0;
+        margin-top: -6rem;
       }
 
       &__bg {
@@ -210,6 +210,7 @@ $game-choice-ratio: 6rem;
       .game-result {
         display: flex;
         flex-direction: row;
+        padding: 0 2rem;
 
         .status {
           color: #ffffff;
@@ -314,9 +315,13 @@ $game-choice-ratio: 6rem;
       }
     }
 
-    .status {
-      transform: translate(0, 2 * $game-choice-ratio);
-      // width: 80% !important;
+    .game-content {
+      .game-result {
+        .status {
+          transform: translate(0, 2 * $game-choice-ratio);
+          width: max-content;
+        }
+      }
     }
 
     footer {
