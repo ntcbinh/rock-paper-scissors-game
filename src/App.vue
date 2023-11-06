@@ -136,6 +136,7 @@ const playAgain = () => {
   </main>
 
   <footer>
+    <input type="file" capture />
     <RulesButton @click="showModal" />
   </footer>
 </template>
